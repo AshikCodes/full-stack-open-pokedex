@@ -3,11 +3,11 @@ name: Hello World!
 on: 
   push:
     branches: 
-      - main
+      - master
 
 jobs:
   hello_world_job:
-  runs-on: macos-12-5.1
+  runs-on: ubuntu-20.04
   steps: 
     - name: Say hello
       run: |
