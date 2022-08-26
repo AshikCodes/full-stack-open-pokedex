@@ -1,14 +1,14 @@
 name: Hello World!
 
-on: 
+on:
   push:
-    branches: 
+    branches:
       - master
 
 jobs:
   hello_world_job:
-  runs-on: ubuntu-20.04
-  steps: 
-    - name: Say hello
-      run: |
-        echo "Hello World!"
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Say hello
+        run: |
+          echo "Hello World!"
