@@ -30,7 +30,7 @@ jobs:
       - name: deploy app
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          heroku_api_key: 411e9dad-0418-4538-8e00-0e867ca3d78c
+          heroku_api_key: 73c366dc-2188-4217-879f-ad554cb58380
           heroku_app_name: limitless-earth-19393
           heroku_email: ashikreji27@gmail.com
 
