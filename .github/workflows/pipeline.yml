@@ -28,9 +28,10 @@ jobs:
           start: npm run start-prod
           wait-on: http://localhost:5000
       - name: deploy app
+        uses: actions/checkout@v2
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          heroku_api_key: 73c366dc-2188-4217-879f-ad554cb58380
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: limitless-earth-19393
           heroku_email: ashikreji27@gmail.com
 
