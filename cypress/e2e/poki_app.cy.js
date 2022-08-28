@@ -10,6 +10,5 @@ describe('Pokedex', function() {
     cy.visit('http://localhost:8080/')
     cy.contains('ivysaur').click()
     cy.contains('chlorophyll')
-    cy.contains('overgrow')
   })
 })

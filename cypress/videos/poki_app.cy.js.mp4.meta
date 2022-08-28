@@ -1,0 +1,11 @@
+;FFMETADATA1
+[CHAPTER]
+TIMEBASE=1/1000
+START=-76063
+END=4141
+title=Pokedex front page can be opened
+[CHAPTER]
+TIMEBASE=1/1000
+START=82676
+END=84350
+title=Pokedex pokemon page can be navigated
