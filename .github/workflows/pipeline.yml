@@ -42,6 +42,17 @@ jobs:
           heroku_app_name: nameless-depths-92509
           heroku_email: ashikreji27@gmail.com
           justlogin: true
+  tag_release:
+    needs: [simple_deployment_pipeline]
+    runs-on: macos-latest
+    if: ${{ github.event_name == 'push'}}
+    steps:
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.36.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
+          DRY_RUN: true
           
 
 
