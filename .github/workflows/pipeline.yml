@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  simple_deployment_pipeline:
+  build_and_test:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -32,6 +32,7 @@ jobs:
           start: npm run start-prod
           wait-on: http://localhost:5000
   deploy_for_production:
+    needs: [build_and_test]
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push'}}
     steps:
@@ -43,8 +44,8 @@ jobs:
           heroku_email: ashikreji27@gmail.com
           justlogin: true
   tag_release:
-    needs: [simple_deployment_pipeline]
-    runs-on: macos-latest
+    needs: [deploy_for_production]
+    runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push'}}
     steps:
       - name: Bump version and push tag
