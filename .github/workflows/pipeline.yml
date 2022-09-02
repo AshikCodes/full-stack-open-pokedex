@@ -56,6 +56,36 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
+  conclusion:
+    needs: [tag_release]
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }}
+    steps: 
+      - name: Test success
+        uses: rjstone/discord-webhook-notify@v1
+        if: success()
+        with: 
+          username: MyGithubBot
+          color: '#00FF00'
+          avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
+          description: 'to something something by me '
+          footer: 'Severity: Informational'
+          test: A new version of Pokedex is deployed!!!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Test failed
+        uses: rjstone/discord-webhook-notify@v1
+        if: failure()
+        with: 
+          username: MyGithubBot
+          color: '#ff0000'
+          avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
+          description: 'to something something by me '
+          footer: 'Severity: Error'
+          test: Build failed
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+    with:
+      severity: info
+
           
 
 
