@@ -24,7 +24,7 @@ jobs:
           run: echo "$COMMITS"
         - name: commit messages
           env:
-            COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
+            COMMIT_MESSAGES: ${{ toJson(github.event.commits.message) }}
           run: echo "$COMMIT_MESSAGES"
   build_and_test:
     runs-on: macos-latest
