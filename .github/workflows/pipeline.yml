@@ -83,8 +83,7 @@ jobs:
           footer: 'Severity: Error'
           test: Build failed
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-    with:
-      severity: info
+          severity: info
 
           
 
