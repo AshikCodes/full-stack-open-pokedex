@@ -40,7 +40,7 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: nameless-depths-92509
+          heroku_app_name: "ci-cd-bloglist-app"
           heroku_email: ashikreji27@gmail.com
           justlogin: true
   tag_release:
@@ -70,7 +70,7 @@ jobs:
           avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
           description: 'to something something by me '
           footer: 'Severity: Informational'
-          test: A new version of Pokedex is deployed!!!
+          text: A new version of Pokedex is deployed!!!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Test failed
         uses: rjstone/discord-webhook-notify@v1
@@ -81,7 +81,7 @@ jobs:
           avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
           description: 'to something something by me '
           footer: 'Severity: Error'
-          test: Build failed
+          text: Build failed
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           severity: info
 
