@@ -37,12 +37,17 @@ jobs:
     if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message, ' '), '#skip')}}
     steps:
       - uses: actions/checkout@v2
+      - name: Login to heroku
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: "ci-cd-bloglist-app"
           heroku_email: "ashikreji27@gmail.com"
           justlogin: true
+      - name: Add remote 
+        run: heroku git:remote -a ci-cd-bloglist-app
+      - name: Push to master branch app on heroku
+        run: git push heroku experimental-branch:main
   tag_release:
     needs: [deploy_for_production]
     runs-on: ubuntu-latest
