@@ -46,7 +46,7 @@ jobs:
       - name: Add remote 
         run: heroku git:remote -a ci-cd-bloglist-app
       - name: Push to master branch app on heroku
-        run: git push heroku experimental-branch:main
+        run: git push heroku main
   tag_release:
     needs: [deploy_for_production]
     runs-on: ubuntu-latest
