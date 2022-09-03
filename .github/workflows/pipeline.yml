@@ -41,7 +41,7 @@ jobs:
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: "ci-cd-bloglist-app"
-          heroku_email: ashikreji27@gmail.com
+          heroku_email: "ashikreji27@gmail.com"
           justlogin: true
   tag_release:
     needs: [deploy_for_production]
